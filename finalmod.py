@@ -15,7 +15,24 @@ st.title('📊 TALENDIG DATA SCIENCE ')
 st.subheader('MODULO 3 - Proyecto Final - Grupo #2 ')
 
 # 1. Cargar el dataset
-
+# ================================
+# CARGA Y PREPARACIÓN DE DATOS
+# ================================
+# Función para cargar y preparar los datos con cache
+@st.cache_data
+def cargar_datos(path: str):
+    """
+    Carga y prepara los datos para el dashboard
+    
+    Args:
+        path (str): Ruta del archivo CSV
+    
+    Returns:
+        pandas.DataFrame: DataFrame con datos procesados
+    """
+    # Carga el archivo Excel
+    df = pd.read_csv(path, sep=';')
+    
 upload_file = st.file_uploader("Seleccione el archivo a cargar:", type=["csv", "xlsx"])
 
 if upload_file is not None:
