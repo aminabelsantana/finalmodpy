@@ -7,6 +7,14 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+from matplotlib.patches import Rectangle
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
 
 # Configuración inicial
 
@@ -23,23 +31,23 @@ st.subheader('MODULO 3 - Proyecto Final - Grupo #2 ')
 def cargar_datos(path: str):
     """
     Carga y prepara los datos para el dashboard
-    
+
     Args:
         path (str): Ruta del archivo CSV
-    
+
     Returns:
         pandas.DataFrame: DataFrame con datos procesados
     """
     # Carga el archivo Excel
     df = pd.read_csv(path, sep=';')
-    
-upload_file = st.file_uploader("Seleccione el archivo a cargar:", type=["csv", "xlsx"])
 
-if upload_file is not None:
-    if upload_file.name.endswith(".csv"):
-        df = pd.read_csv(upload_file, sep=";")
-    else:
-        df = pd.read_excel(upload_file)
+# upload_file = st.file_uploader("Seleccione el archivo a cargar:", type=["csv", "xlsx"])
+
+# if upload_file is not None:
+#     if upload_file.name.endswith(".csv"):
+#         df = pd.read_csv(upload_file, sep=";")
+#     else:
+#         df = pd.read_excel(upload_file)
 
     # Vista previa
     st.subheader("Vista previa de los datos")
@@ -148,8 +156,8 @@ if upload_file is not None:
     - 👥 El comportamiento de compra y visitas web ayuda a identificar clientes más activos y rentables.
     """)
 
-else:
-    st.warning("⚠️ Cargue un archivo CSV o Excel para iniciar el análisis.")
+# else:
+#     st.warning("⚠️ Cargue un archivo CSV o Excel para iniciar el análisis.")
 
 
 # Footer
